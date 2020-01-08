@@ -1,0 +1,11 @@
+[Unit]
+Description=Moonlight GameStream
+Conflicts=mediacenter.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/moonlight stream
+
+[Install]
+WantedBy=multi-user.target
