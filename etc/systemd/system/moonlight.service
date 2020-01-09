@@ -6,6 +6,7 @@ Conflicts=mediacenter.service
 Type=oneshot
 RemainAfterExit=no
 ExecStart=/usr/bin/moonlight stream
+ExecStartPost=/bin/systemctl start mediacenter.service
 
 [Install]
 WantedBy=multi-user.target
