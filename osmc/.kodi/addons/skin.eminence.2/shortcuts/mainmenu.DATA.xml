@@ -1,0 +1,7 @@
+<shortcut>
+  <label>2</label>
+  <label2>Common Shortcut</label2>
+  <defaultID>steam</defaultID>
+  <icon>special://skin/extras/icons/games.png</icon>
+	<action>RunScript("/home/osmc/moonlight/moonlight.py")</action>
+</shortcut>
