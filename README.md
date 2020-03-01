@@ -14,8 +14,3 @@ sudo apt-get -y install raspotify
 sudo nano /etc/default/raspotify
 sudo systemctl enable raspotify.service
 
-# youtube
-
-Youtube v3 API Key: AIzaSyBew5zI-C7_v1xAr_RuvIUkv-O2MtA_Wa0
-OAuth Client ID: 581291236357-focdrjp7ckdtidbtqe58tvgoo7plqe3n.apps.googleusercontent.com
-OAuth Secret: 7w3-9DFkFFcgvky4v-4R5b1f
