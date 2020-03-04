@@ -14,3 +14,5 @@ sudo apt-get -y install raspotify
 sudo nano /etc/default/raspotify
 sudo systemctl enable raspotify.service
 
+# make a remote backup once fully operational
+ssh osmc@usine "sudo dd if=/dev/mmcblk0 bs=1M | gzip -" | dd of=Backups/my_backup.gz
