@@ -16,3 +16,7 @@ sudo systemctl enable raspotify.service
 
 # make a remote backup once fully operational
 ssh osmc@usine "sudo dd if=/dev/mmcblk0 bs=1M | gzip -" | dd of=Backups/my_backup.gz
+
+# other backup tool
+
+https://github.com/graham8/osmc-backup/blob/master/README.md
