@@ -4,6 +4,7 @@ Conflicts=mediacenter.service
 
 [Service]
 Type=oneshot
+User=osmc
 RemainAfterExit=no
 ExecStart=/usr/bin/moonlight stream
 ExecStartPost=/bin/systemctl start mediacenter.service
