@@ -5,6 +5,15 @@
 3. Create a RunScript launcher in Kodi
 4. Pair moonlight with the PC
 
+# retropie
+apt -y install libfreeimage-dev libfreetype6-dev libcurl4-openssl-dev cmake libvlc-dev libvlccore-dev vlc rapidjson-dev
+wget http://steinerdatenbank.de/software/omxplayer_20180910~7f3faf6~stretch_armhf.deb
+dpkg -i omxplayer_20180910~7f3faf6~stretch_armhf.deb
+git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+cd RetroPie-Setup
+chmod +x retropie_setup.sh
+./retropie_setup.sh
+
 # raspotify
 sudo apt-get -y install curl apt-transport-https
 curl -sSL https://dtcooper.github.io/raspotify/key.asc | sudo apt-key add -v -
