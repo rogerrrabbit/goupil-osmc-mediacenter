@@ -6,6 +6,7 @@
 
 TMP_DIR=/tmp/deploy.tmp
 MOONLIGHT_SCRIPT_DIR=/home/osmc/moonlight/
+RETROPIE_SCRIPT_DIR=/home/osmc/retropie/
 
 mkdir -p $TMP_DIR
 cd $TMP_DIR
@@ -46,6 +47,15 @@ dpkg -i omxplayer_201809107f3faf6stretch_armhf.deb
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 chmod +x RetroPie-Setup/retropie_setup.sh
 RetroPie-Setup/retropie_setup.sh
+
+echo "[5] Installing retropie service"
+wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/etc/systemd/system/retropie.service
+wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/retropie/retropie.py
+mkdir $RETROPIE_SCRIPT_DIR
+cp retropie.service /etc/systemd/system/
+cp retropie.py $RETROPIE_SCRIPT_DIR
+chmod -R +rx $RETROPIE_SCRIPT_DIR
+chmod 644 /etc/systemd/system/retropie.service
 
 cd -
 rm -rf $TMP_DIR
