@@ -49,7 +49,15 @@ cp retropie.py $RETROPIE_SCRIPT_DIR
 chmod -R +rx $RETROPIE_SCRIPT_DIR
 chmod 644 /etc/systemd/system/retropie.service
 
-echo "[5] Installing retropie"
+echo "[5] Installing Amazon VOD repository"
+wget https://github.com/Sandmann79/xbmc/releases/download/v1.0.2/repository.sandmann79.plugins-1.0.2.zip
+unzip repository.sandmann79.plugins-1.0.2.zip -d /home/osmc/.kodi/addons/
+systemctl restart mediacenter
+sqlite3 /home/osmc/.kodi/userdata/Database/Addons27.db 'update installed set enabled=1 where addonid=="repository.sandmann79.plugins";'
+systemctl restart mediacenter
+kodi-send --action="InstallAddon(plugin.video.amazon-test)"
+
+echo "[6] Installing retropie"
 apt -y install libfreeimage-dev libfreetype6-dev libcurl4-openssl-dev cmake libvlc-dev libvlccore-dev vlc rapidjson-dev
 wget http://steinerdatenbank.de/software/omxplayer_20180910~7f3faf6~stretch_armhf.deb
 dpkg -i omxplayer_201809107f3faf6stretch_armhf.deb
