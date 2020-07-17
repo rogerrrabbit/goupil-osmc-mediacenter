@@ -42,16 +42,7 @@ apt update
 apt -y install raspotify
 systemctl enable raspotify.service
 
-echo "[4] Installing retropie service"
-wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/etc/systemd/system/retropie.service
-wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/retropie/retropie.py
-mkdir $RETROPIE_SCRIPT_DIR
-cp retropie.service /etc/systemd/system/
-cp retropie.py $RETROPIE_SCRIPT_DIR
-chmod -R +rx $RETROPIE_SCRIPT_DIR
-chmod 644 /etc/systemd/system/retropie.service
-
-echo "[5] Installing Amazon VOD repository"
+echo "[4] Installing Amazon VOD repository"
 wget https://github.com/Sandmann79/xbmc/releases/download/v1.0.2/repository.sandmann79.plugins-1.0.2.zip
 unzip repository.sandmann79.plugins-1.0.2.zip -d /home/osmc/.kodi/addons/
 systemctl restart mediacenter
@@ -59,7 +50,7 @@ sqlite3 /home/osmc/.kodi/userdata/Database/Addons27.db 'update installed set ena
 systemctl restart mediacenter
 kodi-send --action="InstallAddon(plugin.video.amazon-test)"
 
-echo "[6] Installing retrosmc"
+echo "[5] Installing retrosmc"
 wget http://steinerdatenbank.de/software/omxplayer_20180910~7f3faf6~stretch_armhf.deb
 dpkg -i omxplayer_201809107f3faf6stretch_armhf.deb
 wget https://raw.githubusercontent.com/mcobit/retrosmc/master/install-retrosmc.sh
