@@ -6,7 +6,8 @@ Conflicts=mediacenter.service
 Type=oneshot
 User=osmc
 RemainAfterExit=no
-ExecStart=/usr/bin/moonlight stream
+Environment="APP=%I"
+ExecStart=/usr/bin/moonlight stream -app $APP
 ExecStartPost=/bin/systemctl start mediacenter.service
 
 [Install]
