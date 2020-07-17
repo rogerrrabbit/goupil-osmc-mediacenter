@@ -14,15 +14,15 @@ cd $TMP_DIR
 systemctl stop mediacenter
 
 echo "[1] Installing moonlight service"
-wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/etc/systemd/system/moonlight.service
+wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/etc/systemd/system/moonlight@.service
 wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/moonlight/moonlight.py
 wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/moonlight/moonlight-steam.py
 mkdir $MOONLIGHT_SCRIPT_DIR
-cp moonlight.service /etc/systemd/system/
+cp moonlight@.service /etc/systemd/system/
 cp moonlight.py $MOONLIGHT_SCRIPT_DIR
 cp moonlight-steam.py $MOONLIGHT_SCRIPT_DIR
 chmod -R +rx $MOONLIGHT_SCRIPT_DIR
-chmod 644 /etc/systemd/system/moonlight.service
+chmod 644 /etc/systemd/system/moonlight@.service
 
 echo "[2] Installing moonlight binary"
 echo "deb http://archive.itimmer.nl/raspbian/moonlight stretch main" >> /etc/apt/sources.list
