@@ -16,9 +16,11 @@ systemctl stop mediacenter
 echo "[1] Installing moonlight service"
 wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/etc/systemd/system/moonlight.service
 wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/moonlight/moonlight.py
+wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/moonlight/moonlight-steam.py
 mkdir $MOONLIGHT_SCRIPT_DIR
 cp moonlight.service /etc/systemd/system/
 cp moonlight.py $MOONLIGHT_SCRIPT_DIR
+cp moonlight-steam.py $MOONLIGHT_SCRIPT_DIR
 chmod -R +rx $MOONLIGHT_SCRIPT_DIR
 chmod 644 /etc/systemd/system/moonlight.service
 
@@ -57,13 +59,12 @@ sqlite3 /home/osmc/.kodi/userdata/Database/Addons27.db 'update installed set ena
 systemctl restart mediacenter
 kodi-send --action="InstallAddon(plugin.video.amazon-test)"
 
-echo "[6] Installing retropie"
-apt -y install libfreeimage-dev libfreetype6-dev libcurl4-openssl-dev cmake libvlc-dev libvlccore-dev vlc rapidjson-dev
+echo "[6] Installing retrosmc"
 wget http://steinerdatenbank.de/software/omxplayer_20180910~7f3faf6~stretch_armhf.deb
 dpkg -i omxplayer_201809107f3faf6stretch_armhf.deb
-git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
-chmod +x RetroPie-Setup/retropie_setup.sh
-RetroPie-Setup/retropie_setup.sh
+wget https://raw.githubusercontent.com/mcobit/retrosmc/master/install-retrosmc.sh
+chmod +x install-retrosmc.sh
+./install-retrosmc.sh
 
 cd -
 rm -rf $TMP_DIR
