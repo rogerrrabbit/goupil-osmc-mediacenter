@@ -1,3 +1,4 @@
 #!/usr/bin/env python
 import os
-os.system("systemctl start moonlight")
+app = "Desktop"
+os.system('systemctl start moonlight@"%s".service' % app)
