@@ -12,6 +12,9 @@ cd $TMP_DIR
 
 systemctl stop mediacenter
 
+echo "[0] More video memory for moonlight"
+echo gpu_mem_1024=320 | sudo tee -a /boot/config.txt
+
 echo "[1] Installing moonlight service"
 wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/etc/systemd/system/moonlight@.service
 wget https://raw.githubusercontent.com/rogerrrabbit/goupil-osmc-mediacenter/master/moonlight/moonlight.py
